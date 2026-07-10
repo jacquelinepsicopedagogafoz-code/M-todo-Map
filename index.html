@@ -694,6 +694,45 @@
     font-style: italic;
     margin-top: 12px;
   }
+
+  /* JORNADA */
+  .jornada { background: var(--white); padding: 64px 24px 56px; }
+  .jornada-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .jornada .accent-line { margin-left: auto; margin-right: auto; }
+  .jornada-steps { display: flex; justify-content: center; align-items: flex-start; gap: 6px; margin-top: 40px; flex-wrap: wrap; }
+  .jornada-step { display: flex; flex-direction: column; align-items: center; width: 128px; }
+  .jornada-step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--gray-l); border: 1.5px solid var(--gray-b); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gray-m); margin-bottom: 10px; }
+  .jornada-step.active .jornada-step-num { background: var(--amber); border-color: var(--amber); color: var(--teal); font-weight: 600; }
+  .jornada-step-label { font-size: 12px; font-weight: 600; color: var(--gray-d); line-height: 1.4; }
+  .jornada-step.active .jornada-step-label { color: var(--teal); }
+  .jornada-step-sub { font-size: 11px; color: var(--gray-m); margin-top: 2px; }
+  .jornada-arrow { color: var(--gray-b); font-size: 18px; margin-top: 10px; }
+  .jornada-note { margin-top: 28px; font-size: 13px; color: var(--gray-m); font-style: italic; }
+
+  /* ONDE VOCÊ ESTÁ HOJE */
+  .onde-esta { background: var(--gray-l); padding: 64px 24px; }
+  .onde-esta-inner { max-width: 720px; margin: 0 auto; }
+  .onde-esta-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
+  .onde-item { background: var(--white); border-radius: 10px; padding: 20px 22px; border: 0.5px solid var(--gray-b); border-left: 3px solid var(--teal-mid); }
+  .onde-item .onde-title { font-size: 15px; font-weight: 600; color: var(--gray-d); margin-bottom: 4px; }
+  .onde-item .onde-path { font-size: 13px; color: var(--teal); font-weight: 600; }
+
+  /* TRANSFORMAÇÃO */
+  .transformacao { background: var(--teal-light); padding: 64px 24px; }
+  .transformacao-inner { max-width: 680px; margin: 0 auto; }
+  .transformacao-list { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
+  .transformacao-list li { list-style: none; display: flex; gap: 12px; font-size: 15px; line-height: 1.6; color: var(--gray-d); align-items: flex-start; }
+  .transformacao-list li::before { content: '→'; color: var(--amber); font-weight: 700; flex-shrink: 0; }
+  .transformacao-teaser { margin-top: 28px; font-size: 14px; font-style: italic; color: var(--teal); border-top: 0.5px solid var(--teal-acc); padding-top: 20px; }
+
+  /* PROGRESSO FINAL */
+  .progresso-final { background: var(--white); padding: 56px 24px 0; text-align: center; }
+  .progresso-badge { display: inline-block; background: var(--teal-light); color: var(--teal); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 18px; border-radius: 20px; }
+
+  @media (max-width: 480px) {
+    .jornada-steps { gap: 20px 4px; }
+    .jornada-step { width: 42%; }
+  }
 </style>
 </head>
 <body>
@@ -726,6 +765,71 @@
   </div>
 </section>
 
+<!-- SUA JORNADA -->
+<div class="jornada fade-in">
+  <div class="jornada-inner">
+    <span class="section-tag">Como funciona a jornada completa</span>
+    <div class="accent-line"></div>
+    <h2 class="section-title">Você está começando aqui</h2>
+    <p class="section-lead">Este guia é a porta de entrada. A partir dele existe um caminho — e você segue só até onde precisar.</p>
+
+    <div class="jornada-steps">
+      <div class="jornada-step active">
+        <div class="jornada-step-num">1</div>
+        <div class="jornada-step-label">Como Eu Funciono</div>
+        <div class="jornada-step-sub">você está aqui</div>
+      </div>
+      <div class="jornada-arrow">→</div>
+      <div class="jornada-step">
+        <div class="jornada-step-num">2</div>
+        <div class="jornada-step-label">Mapeamento Inicial</div>
+        <div class="jornada-step-sub">2 sessões</div>
+      </div>
+      <div class="jornada-arrow">→</div>
+      <div class="jornada-step">
+        <div class="jornada-step-num">3</div>
+        <div class="jornada-step-label">Avaliação</div>
+        <div class="jornada-step-sub">quando indicada</div>
+      </div>
+      <div class="jornada-arrow">→</div>
+      <div class="jornada-step">
+        <div class="jornada-step-num">4</div>
+        <div class="jornada-step-label">Método MAP</div>
+        <div class="jornada-step-sub">colocar em prática</div>
+      </div>
+    </div>
+
+    <p class="jornada-note">Você não precisa dar todos os passos de uma vez. Precisa saber que eles existem.</p>
+  </div>
+</div>
+
+<!-- ONDE VOCÊ ESTÁ HOJE -->
+<div class="onde-esta fade-in">
+  <div class="onde-esta-inner">
+    <span class="section-tag">Antes de continuar</span>
+    <div class="accent-line"></div>
+    <h2 class="section-title">Onde você está hoje?</h2>
+    <div class="onde-esta-grid">
+      <div class="onde-item">
+        <p class="onde-title">🔵 Acho que meu cérebro funciona diferente</p>
+        <p class="onde-path">Comece por aqui — este guia é o seu ponto de partida</p>
+      </div>
+      <div class="onde-item">
+        <p class="onde-title">🟢 Quero entender melhor minhas dificuldades</p>
+        <p class="onde-path">Mapeamento Inicial</p>
+      </div>
+      <div class="onde-item">
+        <p class="onde-title">🟠 Preciso de uma investigação aprofundada</p>
+        <p class="onde-path">Avaliação Interdisciplinar</p>
+      </div>
+      <div class="onde-item">
+        <p class="onde-title">🟣 Já entendi meu funcionamento e agora preciso colocar em prática</p>
+        <p class="onde-path">Método MAP</p>
+      </div>
+    </div>
+  </div>
+</div>
+
 <!-- IDENTIFICAÇÃO -->
 <div class="identification">
   <div class="identification-inner fade-in">
@@ -755,8 +859,27 @@
   </div>
 </section>
 
+<!-- TRANSFORMAÇÃO -->
+<div class="transformacao fade-in">
+  <div class="transformacao-inner">
+    <span class="section-tag">O que muda de verdade</span>
+    <div class="accent-line"></div>
+    <h2 class="section-title">O que muda depois deste material?</h2>
+    <ul class="transformacao-list">
+      <li>Você entende melhor como seu cérebro funciona de fato.</li>
+      <li>Você identifica os padrões por trás de travar mesmo sabendo o que fazer.</li>
+      <li>Você reduz a culpa por não sustentar métodos que funcionam para outras pessoas.</li>
+      <li>Você entende quando uma avaliação realmente faz sentido no seu caso.</li>
+      <li>Você sabe, com clareza, qual é o seu próximo passo.</li>
+    </ul>
+    <p class="transformacao-teaser">Entender é apenas o começo. Depois de compreender seu funcionamento, existe um método estruturado para transformar isso em rotina real — o Método MAP.</p>
+  </div>
+</div>
 
-  
+<div class="receives">
+  <div class="receives-inner fade-in">
+    <span class="section-tag">O material</span>
+    <div class="accent-line"></div>
     <h2 class="section-title">O que você recebe</h2>
 
     <div class="receives-grid">
@@ -873,6 +996,13 @@
     </div>
   </div>
 </section>
+
+<!-- PROGRESSO -->
+<div class="progresso-final fade-in">
+  <div class="progresso-final-inner" style="max-width:680px;margin:0 auto;">
+    <span class="progresso-badge">✅ Você está aqui: Como Eu Funciono</span>
+  </div>
+</div>
 
 <!-- DOIS CAMINHOS -->
 <section class="fade-in" style="padding:72px 24px;background:var(--white);">

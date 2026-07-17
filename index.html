@@ -3,1073 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Como Eu Funciono | Jacqueline Eidt</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<title>Mapeamento Inicial | Jacqueline Eidt</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
-    --teal: #085041;
-    --teal-mid: #1D9E75;
-    --teal-light: #E1F5EE;
-    --teal-acc: #9FE1CB;
-    --amber: #EF9F27;
-    --amber-light: #FAEEDA;
-    --gray-d: #2C2C2A;
-    --gray-m: #5F5E5A;
-    --gray-l: #F7F5F0;
-    --gray-b: #D3D1C7;
-    --white: #FFFFFF;
-    --off-white: #FAFAF8;
+    --teal: #085041; --teal-mid: #1D9E75; --teal-light: #E1F5EE; --teal-acc: #9FE1CB;
+    --amber: #EF9F27; --amber-light: #FAEEDA; --rose: #C4748A; --rose-light: #F5E7EB;
+    --gray-d: #2C2C2A; --gray-m: #5F5E5A; --gray-l: #F7F5F0; --gray-b: #D3D1C7;
+    --white: #FFFFFF; --cream: #FAF7F2;
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'DM Sans', sans-serif;
-    background: var(--off-white);
-    color: var(--gray-d);
-    overflow-x: hidden;
-  }
+  body { font-family: 'Jost', sans-serif; background: var(--cream); color: var(--gray-d); overflow-x: hidden; }
+  .serif { font-family: 'Playfair Display', serif; }
+  .wrap { max-width: 640px; margin: 0 auto; padding: 0 24px; }
+  .section-tag { display: block; text-align: center; font-size: 11.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--teal-mid); margin-bottom: 12px; }
+  .accent-line { width: 44px; height: 3px; background: var(--amber); margin: 0 auto 22px; border-radius: 2px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 34px); text-align: center; color: var(--gray-d); margin-bottom: 14px; }
+  .section-lead { font-size: 15.5px; color: var(--gray-m); text-align: center; line-height: 1.7; max-width: 480px; margin: 0 auto 36px; }
+  .btn-primary { display: inline-block; background: var(--teal); color: var(--white); font-weight: 600; font-size: 15.5px; padding: 17px 36px; border-radius: 12px; text-decoration: none; text-align: center; }
+  .btn-secondary { display: inline-block; background: transparent; color: var(--teal); border: 1.5px solid var(--teal); font-weight: 600; font-size: 14.5px; padding: 15px 30px; border-radius: 12px; text-decoration: none; text-align: center; }
 
   /* HERO */
-  .hero {
-    background: var(--teal);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    padding: 80px 24px 60px;
-  }
+  .hero { background: var(--teal); min-height: 92vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 90px 24px 70px; text-align: center; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; top: -120px; right: -100px; width: 480px; height: 480px; border-radius: 50%; background: rgba(29,158,117,0.18); }
+  .hero::after { content: ''; position: absolute; bottom: -90px; left: -70px; width: 320px; height: 320px; border-radius: 50%; background: rgba(239,159,39,0.10); }
+  .hero-tag { font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal-acc); margin-bottom: 22px; position: relative; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 7vw, 56px); line-height: 1.2; color: var(--white); margin-bottom: 20px; max-width: 620px; position: relative; }
+  .hero h1 em { font-style: italic; color: var(--teal-acc); }
+  .hero-sub { font-size: clamp(15px, 2.3vw, 17px); color: rgba(255,255,255,0.78); max-width: 480px; margin: 0 auto 36px; line-height: 1.7; position: relative; }
+  .hero-author { font-size: 12px; letter-spacing: 0.06em; color: var(--teal-acc); margin-bottom: 34px; position: relative; }
+  .hero-cta { display: flex; flex-direction: column; align-items: center; gap: 12px; position: relative; }
+  .hero-price { font-size: 12.5px; color: rgba(255,255,255,0.65); }
 
-  .hero::before {
-    content: '';
-    position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 500px;
-    height: 500px;
-    border-radius: 50%;
-    background: rgba(29,158,117,0.15);
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    bottom: -80px;
-    left: -60px;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: rgba(239,159,39,0.08);
-    pointer-events: none;
-  }
-
-  .hero-top {
-    text-align: center;
-    margin-bottom: 12px;
-  }
-
-  .hero-tag {
-    display: inline-block;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--teal-acc);
-    margin-bottom: 28px;
-  }
-
-  .hero-accent {
-    display: block;
-    width: 40px;
-    height: 3px;
-    background: var(--amber);
-    margin: 0 auto 28px;
-    border-radius: 2px;
-  }
-
-  .hero h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(44px, 8vw, 72px);
-    font-weight: 300;
-    line-height: 1.1;
-    color: var(--white);
-    margin-bottom: 8px;
-    text-align: center;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    color: var(--teal-acc);
-  }
-
-  .hero-sub {
-    font-size: clamp(15px, 2.5vw, 18px);
-    font-weight: 300;
-    color: rgba(255,255,255,0.7);
-    text-align: center;
-    max-width: 540px;
-    margin: 16px auto 0;
-    line-height: 1.7;
-  }
-
-  .hero-author {
-    text-align: center;
-    margin-top: 32px;
-  }
-
-  .hero-author span {
-    font-size: 12px;
-    color: var(--teal-acc);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .hero-cta {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-    margin-top: 48px;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: var(--amber);
-    color: var(--teal);
-    font-family: 'DM Sans', sans-serif;
-    font-size: 15px;
-    font-weight: 600;
-    padding: 18px 40px;
-    border-radius: 4px;
-    text-decoration: none;
-    letter-spacing: 0.02em;
-    transition: transform 0.2s, box-shadow 0.2s;
-    text-align: center;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(239,159,39,0.3);
-  }
-
-  .btn-price {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    opacity: 0.4;
-    animation: bounce 2s infinite;
-  }
-
-  .scroll-hint span {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--white);
-  }
-
-  .scroll-hint::after {
-    content: '';
-    display: block;
-    width: 1px;
-    height: 32px;
-    background: var(--white);
-  }
-
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(6px); }
-  }
-
-  /* SECTION BASE */
-  section {
-    padding: 80px 24px;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .section-tag {
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--teal-mid);
-    margin-bottom: 12px;
-    display: block;
-  }
-
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(28px, 5vw, 42px);
-    font-weight: 400;
-    line-height: 1.2;
-    color: var(--gray-d);
-    margin-bottom: 20px;
-  }
-
-  .section-lead {
-    font-size: 16px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--gray-m);
-  }
-
-  .accent-line {
-    width: 36px;
-    height: 3px;
-    background: var(--amber);
-    border-radius: 2px;
-    margin-bottom: 20px;
-  }
-
-  hr.divider {
-    border: none;
-    border-top: 0.5px solid var(--gray-b);
-    margin: 0;
-  }
-
-  /* IDENTIFICAÇÃO */
-  .identification {
-    background: var(--teal);
-    padding: 80px 24px;
-  }
-
-  .identification-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .id-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(22px, 4vw, 34px);
-    font-weight: 300;
-    font-style: italic;
-    line-height: 1.5;
-    color: var(--white);
-    margin-bottom: 32px;
-  }
-
-  .id-list {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .id-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 15px;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.8);
-  }
-
-  .id-list li::before {
-    content: '—';
-    color: var(--teal-acc);
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .id-bottom {
-    margin-top: 40px;
-    padding-top: 32px;
-    border-top: 0.5px solid rgba(255,255,255,0.15);
-  }
-
-  .id-bottom p {
-    font-size: 18px;
-    font-weight: 500;
-    color: var(--white);
-    line-height: 1.6;
-  }
-
-  .id-bottom strong {
-    color: var(--teal-acc);
-  }
-
-  /* VIRADA */
-  .virada {
-    background: var(--off-white);
-  }
-
-  .virada-box {
-    background: var(--white);
-    border: 0.5px solid var(--gray-b);
-    border-radius: 12px;
-    padding: 36px 32px;
-    margin-top: 32px;
-  }
-
-  .virada-box p {
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--gray-m);
-    margin-bottom: 14px;
-  }
-
-  .virada-box p:last-child { margin-bottom: 0; }
-
-  .virada-box strong {
-    color: var(--gray-d);
-    font-weight: 500;
-  }
-
-  /* O QUE VOCÊ RECEBE */
-  .receives {
-    background: var(--gray-l);
-    padding: 80px 24px;
-  }
-
-  .receives-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .receives-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    margin-top: 36px;
-  }
-
-  .receive-item {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-    background: var(--white);
-    border-radius: 10px;
-    padding: 24px;
-    border: 0.5px solid var(--gray-b);
-  }
-
-  .receive-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 32px;
-    font-weight: 300;
-    color: var(--teal-acc);
-    line-height: 1;
-    flex-shrink: 0;
-    width: 36px;
-  }
-
-  .receive-content h3 {
-    font-size: 15px;
-    font-weight: 600;
-    color: var(--teal);
-    margin-bottom: 6px;
-  }
-
-  .receive-content p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: var(--gray-m);
-    font-weight: 300;
-  }
+  /* SEÇÃO GENÉRICA */
+  section { padding: 68px 0; }
+  .white-bg { background: var(--white); }
 
   /* PARA QUEM */
-  .for-who {
-    background: var(--off-white);
-  }
+  .quem-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+  .quem-item { background: var(--cream); border-radius: 12px; padding: 18px 20px; border-left: 3px solid var(--teal-mid); font-size: 14.5px; color: var(--gray-d); line-height: 1.6; }
 
-  .for-who-list {
-    margin-top: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .for-who-item {
-    padding: 20px 0;
-    border-bottom: 0.5px solid var(--gray-b);
-    font-size: 15px;
-    line-height: 1.7;
-    color: var(--gray-m);
-    display: flex;
-    gap: 12px;
-    align-items: flex-start;
-  }
-
-  .for-who-item:last-child { border-bottom: none; }
-
-  .for-who-item::before {
-    content: '✓';
-    color: var(--teal-mid);
-    font-weight: 600;
-    flex-shrink: 0;
-    margin-top: 1px;
-  }
-
-  .not-for {
-    background: var(--amber-light);
-    border: 0.5px solid #FAC775;
-    border-radius: 10px;
-    padding: 24px;
-    margin-top: 32px;
-  }
-
-  .not-for-title {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 12px;
-  }
-
-  .not-for p {
-    font-size: 14px;
-    line-height: 1.7;
-    color: #854F0B;
-    font-weight: 300;
-  }
-
-  /* QUEM SOU */
-  .about {
-    background: var(--white);
-    padding: 80px 24px;
-  }
-
-  .about-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .about-card {
-    background: var(--teal-light);
-    border: 0.5px solid var(--teal-acc);
-    border-radius: 12px;
-    padding: 36px 32px;
-    margin-top: 32px;
-  }
-
-  .about-name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: var(--teal);
-    margin-bottom: 4px;
-  }
-
-  .about-role {
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--teal-mid);
-    margin-bottom: 20px;
-  }
-
-  .about-text {
-    font-size: 15px;
-    line-height: 1.8;
-    color: var(--gray-m);
-    font-weight: 300;
-  }
-
-  .about-text p { margin-bottom: 14px; }
-  .about-text p:last-child { margin-bottom: 0; }
-
-  .about-diff {
-    margin-top: 24px;
-    padding-top: 24px;
-    border-top: 0.5px solid var(--teal-acc);
-    font-size: 15px;
-    font-weight: 500;
-    color: var(--teal);
-    font-style: italic;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 20px;
-    line-height: 1.5;
-  }
-
-  /* CTA FINAL */
-  .cta-final {
-    background: var(--teal);
-    padding: 100px 24px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .cta-final::before {
-    content: '';
-    position: absolute;
-    top: -80px;
-    right: -80px;
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    background: rgba(29,158,117,0.12);
-  }
-
-  .cta-final-inner {
-    max-width: 540px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 1;
-  }
-
-  .cta-final h2 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(30px, 6vw, 48px);
-    font-weight: 300;
-    color: var(--white);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-
-  .cta-final p {
-    font-size: 15px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.7;
-    margin-bottom: 40px;
-  }
-
-  .price-box {
-    display: inline-block;
-    margin-bottom: 32px;
-  }
-
-  .price-label {
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--teal-acc);
-    margin-bottom: 4px;
-  }
-
-  .price-value {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 56px;
-    font-weight: 300;
-    color: var(--white);
-    line-height: 1;
-  }
-
-  .price-value sup {
-    font-size: 24px;
-    vertical-align: super;
-  }
-
-  .price-note {
-    font-size: 12px;
-    color: rgba(255,255,255,0.4);
-    margin-top: 6px;
-  }
-
-  .cta-guarantee {
-    margin-top: 20px;
-    font-size: 13px;
-    color: rgba(255,255,255,0.4);
-  }
-
-  /* FOOTER */
-  footer {
-    background: #04342C;
-    padding: 40px 24px;
-    text-align: center;
-  }
-
-  footer p {
-    font-size: 12px;
-    color: rgba(255,255,255,0.3);
-    line-height: 1.8;
-  }
-
-  footer a {
-    color: var(--teal-acc);
-    text-decoration: none;
-  }
-
-  /* AVISO */
-  .aviso {
-    background: var(--gray-l);
-    padding: 80px 24px;
-  }
-
-  .aviso-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .aviso-box {
-    background: var(--white);
-    border-left: 3px solid var(--teal-mid);
-    border-radius: 0 10px 10px 0;
-    padding: 24px 28px;
-  }
-
-  .aviso-box p {
-    font-size: 14px;
-    line-height: 1.8;
-    color: var(--gray-m);
-    font-weight: 300;
-    font-style: italic;
-  }
-
-  /* AMBER TOP BAR */
-  .top-bar {
-    height: 5px;
-    background: var(--amber);
-    width: 100%;
-  }
-
-  /* ANIMATIONS */
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-
-  @media (max-width: 480px) {
-    .hero { padding: 60px 20px 80px; }
-    section { padding: 60px 20px; }
-    .virada-box { padding: 24px 20px; }
-    .receive-item { padding: 20px; }
-    .about-card { padding: 28px 20px; }
-  }
-
-  .hero-photo {
-    display: flex;
-    justify-content: center;
-    margin: 32px auto 0;
-    max-width: 340px;
-  }
-  .hero-photo img {
-    width: 100%;
-    max-width: 320px;
-    border-radius: 12px;
-    object-fit: cover;
-    border: 3px solid rgba(159,225,203,0.2);
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-  }
-  .about-photo {
-    margin-bottom: 28px;
-  }
-  .about-photo img {
-    width: 100%;
-    border-radius: 12px;
-    object-fit: cover;
-    max-height: 420px;
-    box-shadow: 0 8px 32px rgba(8,80,65,0.12);
-  }
-  .dsm-photo {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 0 24px 48px;
-  }
-  .dsm-photo img {
-    width: 100%;
-    border-radius: 12px;
-    object-fit: cover;
-    max-height: 460px;
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-  }
-  .dsm-caption {
-    text-align: center;
-    font-size: 13px;
-    color: var(--gray-m);
-    font-style: italic;
-    margin-top: 12px;
-  }
+  /* O QUE VOCÊ RECEBE */
+  .receive-grid { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
+  .receive-item { display: flex; gap: 14px; align-items: flex-start; }
+  .receive-num { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--amber); font-weight: 700; min-width: 28px; }
+  .receive-text b { display: block; font-size: 15px; color: var(--gray-d); margin-bottom: 3px; }
+  .receive-text span { font-size: 13.5px; color: var(--gray-m); line-height: 1.6; }
 
   /* JORNADA */
-  .jornada { background: var(--white); padding: 64px 24px 56px; }
-  .jornada-inner { max-width: 720px; margin: 0 auto; text-align: center; }
-  .jornada .accent-line { margin-left: auto; margin-right: auto; }
-  .jornada-steps { display: flex; justify-content: center; align-items: flex-start; gap: 6px; margin-top: 40px; flex-wrap: wrap; }
-  .jornada-step { display: flex; flex-direction: column; align-items: center; width: 128px; }
-  .jornada-step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--gray-l); border: 1.5px solid var(--gray-b); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--gray-m); margin-bottom: 10px; }
-  .jornada-step.active .jornada-step-num { background: var(--amber); border-color: var(--amber); color: var(--teal); font-weight: 600; }
-  .jornada-step-label { font-size: 12px; font-weight: 600; color: var(--gray-d); line-height: 1.4; }
+  .jornada-steps { display: flex; justify-content: center; align-items: flex-start; gap: 6px; margin: 40px 0 8px; flex-wrap: wrap; }
+  .jornada-step { display: flex; flex-direction: column; align-items: center; width: 150px; }
+  .jornada-step-num { width: 40px; height: 40px; border-radius: 50%; background: var(--gray-l); border: 1.5px solid var(--gray-b); display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 17px; color: var(--gray-m); margin-bottom: 10px; }
+  .jornada-step.active .jornada-step-num { background: var(--amber); border-color: var(--amber); color: var(--teal); font-weight: 700; }
+  .jornada-step-label { font-size: 12.5px; font-weight: 600; color: var(--gray-d); line-height: 1.4; text-align: center; }
   .jornada-step.active .jornada-step-label { color: var(--teal); }
   .jornada-step-sub { font-size: 11px; color: var(--gray-m); margin-top: 2px; }
   .jornada-arrow { color: var(--gray-b); font-size: 18px; margin-top: 10px; }
-  .jornada-note { margin-top: 28px; font-size: 13px; color: var(--gray-m); font-style: italic; }
+  .jornada-note { margin-top: 26px; font-size: 13px; color: var(--gray-m); font-style: italic; text-align: center; }
 
-  /* ONDE VOCÊ ESTÁ HOJE */
-  .onde-esta { background: var(--gray-l); padding: 64px 24px; }
-  .onde-esta-inner { max-width: 720px; margin: 0 auto; }
-  .onde-esta-grid { display: flex; flex-direction: column; gap: 14px; margin-top: 32px; }
-  .onde-item { background: var(--white); border-radius: 10px; padding: 20px 22px; border: 0.5px solid var(--gray-b); border-left: 3px solid var(--teal-mid); }
-  .onde-item .onde-title { font-size: 15px; font-weight: 600; color: var(--gray-d); margin-bottom: 4px; }
-  .onde-item .onde-path { font-size: 13px; color: var(--teal); font-weight: 600; }
+  /* DISCLAIMER */
+  .disclaimer { background: var(--rose-light); border-radius: 14px; padding: 20px 22px; font-size: 13px; color: var(--rose); line-height: 1.6; text-align: center; }
 
-  /* TRANSFORMAÇÃO */
-  .transformacao { background: var(--teal-light); padding: 64px 24px; }
-  .transformacao-inner { max-width: 680px; margin: 0 auto; }
-  .transformacao-list { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
-  .transformacao-list li { list-style: none; display: flex; gap: 12px; font-size: 15px; line-height: 1.6; color: var(--gray-d); align-items: flex-start; }
-  .transformacao-list li::before { content: '→'; color: var(--amber); font-weight: 700; flex-shrink: 0; }
-  .transformacao-teaser { margin-top: 28px; font-size: 14px; font-style: italic; color: var(--teal); border-top: 0.5px solid var(--teal-acc); padding-top: 20px; }
+  /* CTA FINAL */
+  .cta-final { background: var(--gray-d); text-align: center; padding: 72px 24px; }
+  .cta-final h2 { font-family: 'Playfair Display', serif; font-size: clamp(26px, 5vw, 34px); color: var(--white); margin-bottom: 14px; }
+  .cta-final p { font-size: 14.5px; color: var(--gray-b); max-width: 440px; margin: 0 auto 30px; line-height: 1.7; }
 
-  /* PROGRESSO FINAL */
-  .progresso-final { background: var(--white); padding: 56px 24px 0; text-align: center; }
-  .progresso-badge { display: inline-block; background: var(--teal-light); color: var(--teal); font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 8px 18px; border-radius: 20px; }
-
-  @media (max-width: 480px) {
-    .jornada-steps { gap: 20px 4px; }
-    .jornada-step { width: 42%; }
-  }
+  footer { text-align: center; padding: 32px 24px; font-size: 12px; color: var(--gray-m); }
 </style>
 </head>
 <body>
 
-<div class="top-bar"></div>
+<div class="hero">
+  <span class="hero-tag">Instituto Jacqueline Eidt</span>
+  <h1>Você sabe o que precisa fazer.<br><em>E mesmo assim não consegue.</em></h1>
+  <p class="hero-sub">Isso não é preguiça. É o jeito que seu cérebro funciona — e em poucos minutos você pode começar a entender isso com clareza.</p>
+  <div class="hero-author">JACQUELINE EIDT · NEUROPSICOPEDAGOGA CLÍNICA</div>
+  <div class="hero-cta">
+    <a href="https://pay.kiwify.com.br/U6mGqgY" class="btn-primary">Quero fazer meu Mapeamento →</a>
+    <span class="hero-price">R$ 97 · acesso imediato</span>
+  </div>
+</div>
 
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-top">
-    <span class="hero-tag">Método MAP — Jacqueline Eidt</span>
-    <span class="hero-accent"></span>
-    <h1>Como eu<br><em>funciono.</em></h1>
-    <p class="hero-sub">Um guia direto para adultos que já tentaram de tudo — e ainda não conseguiram sair do lugar.</p>
-    <div class="hero-author">
-      <span>Jacqueline Eidt · Neuropsicopedagoga Clínica</span>
+<section class="white-bg">
+  <div class="wrap">
+    <span class="section-tag">O que é</span>
+    <div class="accent-line"></div>
+    <h2 class="section-title">Mapeamento Inicial</h2>
+    <p class="section-lead">Uma autoavaliação interativa que te ajuda a nomear padrões de execução, atenção, emoção e sensorialidade — e a entender, com mais clareza, o que fazer a partir daqui.</p>
+
+    <div class="receive-grid">
+      <div class="receive-item">
+        <span class="receive-num">01</span>
+        <div class="receive-text"><b>Autoavaliação guiada</b><span>Afirmações simples, organizadas em blocos, sobre como você funciona no dia a dia.</span></div>
+      </div>
+      <div class="receive-item">
+        <span class="receive-num">02</span>
+        <div class="receive-text"><b>Mapa visual do seu padrão</b><span>Resultado na hora, com pontuação, gráfico e leitura personalizada pra você.</span></div>
+      </div>
+      <div class="receive-item">
+        <span class="receive-num">03</span>
+        <div class="receive-text"><b>Primeiros passos práticos</b><span>Estratégias simples e específicas pro padrão mais forte que aparecer no seu resultado.</span></div>
+      </div>
+      <div class="receive-item">
+        <span class="receive-num">04</span>
+        <div class="receive-text"><b>E-book bônus</b><span>Um guia curto pra te ajudar a interpretar o resultado com calma.</span></div>
+      </div>
     </div>
-  </div>
-
-  
-  <div class="hero-photo">
-    <img src="images/hero-jacqueline-eidt.jpg" alt="Jacqueline Eidt" />
-  </div>
-<div class="hero-cta">
-    <a href="https://pay.kiwify.com.br/U6mGqgY" class="btn-primary">Quero entender como eu funciono →</a>
-    <span class="btn-price">Acesso imediato · R$97 · Pagamento único</span>
-  </div>
-
-  <div class="scroll-hint">
-    <span>saiba mais</span>
   </div>
 </section>
 
-<!-- SUA JORNADA -->
-<div class="jornada fade-in">
-  <div class="jornada-inner">
-    <span class="section-tag">Como funciona a jornada completa</span>
+<section>
+  <div class="wrap">
+    <span class="section-tag">Onde você está hoje</span>
     <div class="accent-line"></div>
-    <h2 class="section-title">Você está começando aqui</h2>
-    <p class="section-lead">Este guia é a porta de entrada. A partir dele existe um caminho — e você segue só até onde precisar.</p>
+    <h2 class="section-title">Isso é pra você se...</h2>
+    <div class="quem-grid">
+      <div class="quem-item">Você sente que algo no seu jeito de funcionar tem um nome, mas nunca investigou de verdade.</div>
+      <div class="quem-item">Você já tentou de tudo — apps, planners, força de vontade — e nada segura por muito tempo.</div>
+      <div class="quem-item">Você quer um primeiro passo rápido, sem compromisso grande, antes de decidir se quer ir mais fundo.</div>
+    </div>
+  </div>
+</section>
+
+<section class="white-bg">
+  <div class="wrap">
+    <span class="section-tag">Depois do mapeamento</span>
+    <div class="accent-line"></div>
+    <h2 class="section-title">O caminho, se você quiser seguir</h2>
+    <p class="section-lead">Você não precisa dar todos os passos de uma vez. O Mapeamento já entrega valor sozinho — o resto existe pra quando fizer sentido pra você.</p>
 
     <div class="jornada-steps">
       <div class="jornada-step active">
         <div class="jornada-step-num">1</div>
-        <div class="jornada-step-label">Como Eu Funciono</div>
+        <div class="jornada-step-label">Mapeamento Inicial</div>
         <div class="jornada-step-sub">você está aqui</div>
       </div>
       <div class="jornada-arrow">→</div>
       <div class="jornada-step">
         <div class="jornada-step-num">2</div>
-        <div class="jornada-step-label">Mapeamento Inicial</div>
-        <div class="jornada-step-sub">2 sessões</div>
+        <div class="jornada-step-label">Consulta Inicial</div>
+        <div class="jornada-step-sub">conversa individual</div>
       </div>
       <div class="jornada-arrow">→</div>
       <div class="jornada-step">
         <div class="jornada-step-num">3</div>
-        <div class="jornada-step-label">Avaliação</div>
+        <div class="jornada-step-label">Avaliação Interdisciplinar</div>
         <div class="jornada-step-sub">quando indicada</div>
       </div>
-      <div class="jornada-arrow">→</div>
-      <div class="jornada-step">
-        <div class="jornada-step-num">4</div>
-        <div class="jornada-step-label">Método MAP</div>
-        <div class="jornada-step-sub">colocar em prática</div>
-      </div>
     </div>
-
-    <p class="jornada-note">Você não precisa dar todos os passos de uma vez. Precisa saber que eles existem.</p>
-  </div>
-</div>
-
-<!-- ONDE VOCÊ ESTÁ HOJE -->
-<div class="onde-esta fade-in">
-  <div class="onde-esta-inner">
-    <span class="section-tag">Antes de continuar</span>
-    <div class="accent-line"></div>
-    <h2 class="section-title">Onde você está hoje?</h2>
-    <div class="onde-esta-grid">
-      <div class="onde-item">
-        <p class="onde-title">🔵 Acho que meu cérebro funciona diferente</p>
-        <p class="onde-path">Comece por aqui — este guia é o seu ponto de partida</p>
-      </div>
-      <div class="onde-item">
-        <p class="onde-title">🟢 Quero entender melhor minhas dificuldades</p>
-        <p class="onde-path">Mapeamento Inicial</p>
-      </div>
-      <div class="onde-item">
-        <p class="onde-title">🟠 Preciso de uma investigação aprofundada</p>
-        <p class="onde-path">Avaliação Interdisciplinar</p>
-      </div>
-      <div class="onde-item">
-        <p class="onde-title">🟣 Já entendi meu funcionamento e agora preciso colocar em prática</p>
-        <p class="onde-path">Método MAP</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- IDENTIFICAÇÃO -->
-<div class="identification">
-  <div class="identification-inner fade-in">
-    <p class="id-quote">"Você sabe o que precisa fazer.<br>Mas não consegue fazer."</p>
-    <ul class="id-list">
-      <li>Já tentou rotina, método, disciplina — nada sustentou.</li>
-      <li>Começa com energia e abandona antes de terminar.</li>
-      <li>Precisa de pressão ou prazo para agir.</li>
-      <li>Sente que está sempre atrasada em relação ao que deveria ter feito.</li>
-      <li>Já foi em terapia, coaching, leu livros — e ainda está no mesmo lugar.</li>
-    </ul>
-    <div class="id-bottom">
-      <p>Isso não é <strong>preguiça</strong>.<br>Não é <strong>falta de força de vontade</strong>.<br>É o jeito que o seu cérebro funciona — e <strong>ninguém nunca te explicou isso direito.</strong></p>
-    </div>
-  </div>
-</div>
-
-<!-- VIRADA -->
-<section class="virada fade-in">
-  <span class="section-tag">A explicação que faltava</span>
-  <div class="accent-line"></div>
-  <h2 class="section-title">O problema não é esforço.<br>É direção.</h2>
-  <div class="virada-box">
-    <p>Você está tentando funcionar com estratégias feitas para outro cérebro. Quando você tenta seguir métodos comuns — você até começa. Mas não sustenta.</p>
-    <p>Isso acontece porque seu sistema de ativação funciona diferente. Não é defeito. É um padrão específico que, quando entendido, pode ser reorganizado.</p>
-    <p><strong>Esse guia foi criado para te dar a explicação clínica que você nunca teve — e um caminho baseado em como você realmente funciona.</strong></p>
+    <p class="jornada-note">Cada etapa é uma decisão nova — nunca um pacote empurrado.</p>
   </div>
 </section>
 
-<!-- TRANSFORMAÇÃO -->
-<div class="transformacao fade-in">
-  <div class="transformacao-inner">
-    <span class="section-tag">O que muda de verdade</span>
-    <div class="accent-line"></div>
-    <h2 class="section-title">O que muda depois deste material?</h2>
-    <ul class="transformacao-list">
-      <li>Você entende melhor como seu cérebro funciona de fato.</li>
-      <li>Você identifica os padrões por trás de travar mesmo sabendo o que fazer.</li>
-      <li>Você reduz a culpa por não sustentar métodos que funcionam para outras pessoas.</li>
-      <li>Você entende quando uma avaliação realmente faz sentido no seu caso.</li>
-      <li>Você sabe, com clareza, qual é o seu próximo passo.</li>
-    </ul>
-    <p class="transformacao-teaser">Entender é apenas o começo. Depois de compreender seu funcionamento, existe um método estruturado para transformar isso em rotina real — o Método MAP.</p>
-  </div>
-</div>
-
-<div class="receives">
-  <div class="receives-inner fade-in">
-    <span class="section-tag">O material</span>
-    <div class="accent-line"></div>
-    <h2 class="section-title">O que você recebe</h2>
-
-    <div class="receives-grid">
-      <div class="receive-item">
-        <span class="receive-num">01</span>
-        <div class="receive-content">
-          <h3>Guia completo em PDF</h3>
-          <p>Por que você trava, os 3 perfis de funcionamento em adultos, os 5 bloqueios reais com protocolo para cada um e plano de 7 dias feito para o seu cérebro.</p>
-        </div>
-      </div>
-      <div class="receive-item">
-        <span class="receive-num">02</span>
-        <div class="receive-content">
-          <h3>Vídeo exclusivo de orientação</h3>
-          <p>Jacqueline explica pessoalmente o método e como aplicar o conteúdo do guia na sua realidade específica.</p>
-        </div>
-      </div>
-      <div class="receive-item">
-        <span class="receive-num">03</span>
-        <div class="receive-content">
-          <h3>Checklist clínico — bônus dia 3</h3>
-          <p>Instrumento estruturado para você entender se seus padrões indicam necessidade de avaliação formal. Baseado em critérios clínicos reais.</p>
-        </div>
-      </div>
-      <div class="receive-item">
-        <span class="receive-num">04</span>
-        <div class="receive-content">
-          <h3>Bônus — dia 7</h3>
-          <p>"Depois do começo: como sustentar quando a motivação acaba." Porque começar não é o problema — sustentar é.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PARA QUEM -->
-<section class="for-who fade-in">
-  <span class="section-tag">Para quem é</span>
-  <div class="accent-line"></div>
-  <h2 class="section-title">Esse guia é para você se...</h2>
-
-  <div class="for-who-list">
-    <div class="for-who-item">Você já tentou vários métodos de organização e nenhum sustentou por mais de duas semanas.</div>
-    <div class="for-who-item">Você sente que está funcionando abaixo do seu potencial real — mas não entende por quê.</div>
-    <div class="for-who-item">Você tem inteligência e capacidade, mas trava na hora de executar.</div>
-    <div class="for-who-item">Você já recebeu um diagnóstico e não sabe o que fazer com ele na prática.</div>
-    <div class="for-who-item">Você suspeita que seu cérebro funciona diferente — mas nunca teve uma explicação clara sobre isso.</div>
-    <div class="for-who-item">Você quer entender antes de tentar de novo.</div>
-  </div>
-
-  <div class="not-for">
-    <p class="not-for-title">Importante</p>
-    <p>Este guia não substitui avaliação clínica. Ele foi criado para pessoas que já foram avaliadas — ou que se reconhecem fortemente nesses padrões — e que precisam transformar entendimento em funcionalidade real. Se você suspeita de algo que precisa de investigação, busque avaliação.</p>
-  </div>
-</section>
-
-
-  <div class="dsm-photo fade-in">
-    <img src="images/dsm5-jacqueline-eidt.jpg" alt="Jacqueline Eidt — DSM-5" />
-    <p class="dsm-caption">Raciocínio clínico baseado em evidência — não em achismo.</p>
-  </div>
-<hr class="divider">
-
-<!-- QUEM SOU EU -->
-<div class="about">
-  <div class="about-inner fade-in">
-    <span class="section-tag">Quem criou esse material</span>
-    <div class="accent-line"></div>
-    <h2 class="section-title">Jacqueline Eidt</h2>
-
-    
-    <div class="about-photo">
-      <img src="images/about-jacqueline-eidt.jpg" alt="Jacqueline Eidt" />
-    </div>
-<div class="about-card">
-      <p class="about-name">Jacqueline Eidt</p>
-      <p class="about-role">Neuropsicopedagoga Clínica · Pós-graduada em Análise do Comportamento e Gestão de Carreira · Método MAP</p>
-      <div class="about-text">
-        <p><em>Comecei atendendo crianças. Mas foram os pais que me ensinaram o próximo passo.</em></p>
-        <p>Sou Jacqueline Eidt, neuropsicopedagoga clínica. Com mais de <strong>2.000 horas de atendimento clínico</strong>, pós-graduada em Análise do Comportamento e em Gestão e Orientação de Carreira, entendo não só o que trava — mas por que trava, com base em como o cérebro funciona.</p>
-        <p>No início da minha trajetória, os pais vinham entender seus filhos. Mas com o tempo, ao ouvir sobre os padrões das crianças, muitos começaram a se reconhecer. A dificuldade de iniciar. A sensação de funcionar abaixo do potencial. O cansaço de tentar e não sustentar.</p>
-        <p>Desenvolvi o <strong>Método MAP</strong> porque percebi que o diagnóstico explica. Mas não resolve. A pessoa precisa de um caminho — e de alguém que entenda profundamente como ela funciona para construir esse caminho junto.</p>
-        <p>Realizo avaliações neuropsicopedagógicas e avaliações interdisciplinares — estas em parceria com psicóloga, com encaminhamento médico quando necessário. Cada processo é conduzido com raciocínio clínico integrado, não apenas aplicação de instrumentos.</p>
-      </div>
-      <p class="about-diff">"Eu não fico só na explicação. Eu trabalho com o depois — com o que você faz depois que entende."</p>
-    </div>
-  </div>
-</div>
-
-<!-- AVISO -->
-<div class="aviso">
-  <div class="aviso-inner fade-in">
-    <div class="aviso-box">
-      <p>Este guia não é mais um conteúdo para acumular. Cada parte foi pensada para provocar reconhecimento, clareza e movimento. Se ao ler você sentir que quer ir mais fundo — existe um próximo passo. Mas começa aqui.</p>
-    </div>
-  </div>
-</div>
-
-<!-- DEPOIMENTOS -->
-<section class="fade-in" style="background:var(--gray-l);padding:72px 24px;">
-  <div style="max-width:720px;margin:0 auto;text-align:center;">
-    <span class="section-tag">Quem já passou por aqui</span>
-    <div class="accent-line"></div>
-    <h2 class="section-title" style="margin-bottom:48px;">O que mudou depois de entender</h2>
-    <div style="display:grid;gap:32px;">
-      <div style="background:var(--white);border-radius:6px;padding:36px;text-align:left;border-left:3px solid var(--teal);">
-        <p style="font-size:17px;line-height:1.8;color:var(--gray-d);font-style:italic;margin-bottom:20px;">"A Jacque foi maravilhosa. Me ajudou a descobrir que tenho TDAH. Fez as avaliações e me indicou um bom profissional médico que me deu o diagnóstico definitivo. Agora consigo entender muitas questões que tinha no meu passado e posso viver uma vida mais plena e funcional."</p>
-        <p style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);">Ana Paula</p>
-      </div>
-      <div style="background:var(--white);border-radius:6px;padding:36px;text-align:left;border-left:3px solid var(--teal);">
-        <p style="font-size:17px;line-height:1.8;color:var(--gray-d);font-style:italic;margin-bottom:20px;">"Desde o primeiro contato fui muito bem acolhida, me senti à vontade nas consultas e sessões. A Jacque tem muita empatia, é uma profissional diferenciada e ama o que faz. Tive uma grande evolução após a avaliação — me abriu novos horizontes."</p>
-        <p style="font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);">Jessica S.</p>
-      </div>
+<section>
+  <div class="wrap">
+    <div class="disclaimer">
+      O Mapeamento Inicial é uma autoavaliação com finalidade de autoconhecimento — não é um laudo nem substitui avaliação clínica formal. Se o seu padrão for consistente, a Avaliação Interdisciplinar é o passo indicado para uma investigação completa.
     </div>
   </div>
 </section>
 
-<!-- PROGRESSO -->
-<div class="progresso-final fade-in">
-  <div class="progresso-final-inner" style="max-width:680px;margin:0 auto;">
-    <span class="progresso-badge">✅ Você está aqui: Como Eu Funciono</span>
-  </div>
-</div>
-
-<!-- DOIS CAMINHOS -->
-<section class="fade-in" style="padding:72px 24px;background:var(--white);">
-  <div style="max-width:760px;margin:0 auto;text-align:center;">
-    <span class="section-tag">Qual é o seu próximo passo?</span>
-    <div class="accent-line"></div>
-    <h2 class="section-title" style="margin-bottom:16px;">Depois do guia, você decide</h2>
-    <p style="color:var(--gray-m);font-size:17px;margin-bottom:48px;">Cada pessoa está em um momento diferente. Dois caminhos — você escolhe o seu.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px;">
-      <div style="border:1.5px solid var(--teal);border-radius:8px;padding:36px 28px;text-align:left;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--teal);margin-bottom:16px;">Caminho 1</p>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--gray-d);margin-bottom:16px;line-height:1.3;">Ainda não tenho diagnóstico</h3>
-        <p style="font-size:15px;color:var(--gray-m);line-height:1.7;margin-bottom:28px;">Você se reconheceu nos padrões do guia e quer entender o que está acontecendo de verdade — com uma avaliação clínica estruturada.</p>
-        <a href="https://api.whatsapp.com/send?phone=5545991578060&text=Ol%C3%A1%20Jacque%2C%20comprei%20o%20guia%20Como%20Eu%20Funciono%20e%20quero%20saber%20sobre%20avalia%C3%A7%C3%A3o%20de%20adulto." style="display:inline-block;background:var(--teal);color:var(--white);padding:14px 24px;border-radius:4px;text-decoration:none;font-size:14px;font-weight:600;">Quero fazer uma avaliação →</a>
-      </div>
-      <div style="border:1.5px solid var(--amber);border-radius:8px;padding:36px 28px;text-align:left;">
-        <p style="font-size:11px;font-weight:700;letter-spacing:0.15em;text-transform:uppercase;color:var(--amber);margin-bottom:16px;">Caminho 2</p>
-        <h3 style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--gray-d);margin-bottom:16px;line-height:1.3;">Já tenho diagnóstico</h3>
-        <p style="font-size:15px;color:var(--gray-m);line-height:1.7;margin-bottom:28px;">Você sabe o que tem, mas ainda não consegue colocar em prática na carreira. O Método MAP é um acompanhamento individual para construir constância real.</p>
-        <a href="https://jacquelinepsicopedagogafoz-code.github.io/jornada-map/" style="display:inline-block;background:var(--amber);color:var(--teal);padding:14px 24px;border-radius:4px;text-decoration:none;font-size:14px;font-weight:600;">Conhecer o Método MAP →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA FINAL -->
 <div class="cta-final">
-  <div class="cta-final-inner fade-in">
-    <h2>Você não precisa de mais força.<br>Você precisa de um caminho.</h2>
-    <p>Acesso imediato após o pagamento. Guia em PDF + vídeo + checklist + bônus. Tudo na sua área de membros.</p>
-
-    <div class="price-box">
-      <p class="price-label">Investimento único</p>
-      <p class="price-value"><sup>R$</sup>97</p>
-      <p class="price-note">Pagamento único · Acesso imediato</p>
-    </div>
-
-    <br>
-    <a href="https://pay.kiwify.com.br/U6mGqgY" class="btn-primary">Quero entender como eu funciono →</a>
-
-    <p class="cta-guarantee">Dúvidas? WhatsApp: (45) 99157-8060</p>
-  </div>
+  <h2 class="serif">Leva 5 minutos.<br>O primeiro passo pode ser hoje.</h2>
+  <p>Sem grandes decisões, sem compromisso de longo prazo — só clareza sobre um padrão que talvez você já sinta há anos.</p>
+  <a href="https://pay.kiwify.com.br/U6mGqgY" class="btn-primary">Quero fazer meu Mapeamento →</a>
 </div>
 
-<!-- FOOTER -->
 <footer>
-  <p>
-    Jacqueline Eidt · Neuropsicopedagoga Clínica<br>
-    <a href="https://www.instagram.com/jacqueeidt">@jacqueeidt</a> · 
-    <a href="https://www.jacqueeidt.com.br">jacqueeidt.com.br</a> · 
-    (45) 99157-8060
-  </p>
-  <p style="margin-top:12px;">© 2026 Jacqueline Eidt · Todos os direitos reservados</p>
+  Jacqueline Eidt · Neuropsicopedagoga Clínica · Foz do Iguaçu, PR
 </footer>
-
-<script>
-  // Fade in on scroll
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-</script>
 
 </body>
 </html>
